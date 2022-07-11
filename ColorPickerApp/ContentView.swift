@@ -7,82 +7,67 @@
 
 import SwiftUI
 
-extension Color {
-    
-    typealias RGBA = (R:Int, G:Int, B:Int, A:Int )
-    
-    func hexValue() -> RGBA? {
-        var output:RGBA? = nil
-
-        if let values = self.cgColor?.components {
-        
-            switch values.count {
-            case 1:
-                output = ( Int(values[0] * 255), Int(values[0] * 255), Int(values[0] * 255),1)
-                break
-            case 2:
-                output = ( Int(values[0] * 255), Int(values[0] * 255), Int(values[0] * 255),Int(values[1] * 255))
-                break
-            case 3:
-                output = ( Int(values[0] * 255), Int(values[1] * 255), Int(values[2] * 255),1)
-            case 4:
-                output = ( Int(values[0] * 255), Int(values[1] * 255), Int(values[2] * 255),Int(values[3] * 255))
-            default:
-                break
-            }
-        }
-        
-        return output
-    }
-
-    func hexValue() -> String? {
-        var output:String? = nil
-        
-        if let rgba:RGBA = self.hexValue() {
-            output = "#\(String(format:"%02X", rgba.R))\(String(format:"%02X", rgba.G))\(String(format:"%02X", rgba.B))\( String(format:"%02X", rgba.A))"
-        }
-        
-        return output
-    }
-    
-    //RGBA(255; 255; 255; 1)
-    func powerappsValue() -> String? {
-        var output:String? = nil
-        
-        if let rgba:RGBA = self.hexValue() {
-            output = "RGBA( \(rgba.R), \(rgba.G), \(rgba.B), \(rgba.A) )"
-            
-        }
-        
-        return output
-    }
-}
-
-
 
 struct ContentView: View {
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
+    
     @State private var selectedColor = Color.black
     
+    @State var hexValue: String?
+    @State var powerAppValue: String?
+
+    var Web : some View {
+        VStack {
+            Text( "WEB")
+            Divider()
+            .if( hexValue != nil && !hexValue!.isEmpty ) { view in
+                HStack {
+                    Text( hexValue! )
+                    CopyToClipboardButton( value: hexValue! )
+                }
+            }
+            .padding(5)
+            .border(.white, width: 1)
+        }.padding()
+    }
+    
+    var PowerApp : some View {
+        VStack {
+            Text( "PowerApp")
+            Divider()
+            .if( powerAppValue != nil && !powerAppValue!.isEmpty ) { view in
+                HStack {
+                    Text( powerAppValue! )
+                    CopyToClipboardButton( value: powerAppValue! )
+                }
+
+            }
+            .padding(5)
+            .border(.white, width: 1)
+        }.padding()
+    }
+
     var body: some View {
-        VStack(alignment: .center) {
-            Text("Color Picker Demo")
-                .foregroundColor(selectedColor).font(.largeTitle)
-                .padding()
+        VStack(alignment: .center ) {
             ColorPicker(
                 "Pick a color",
                 selection: $selectedColor
-            ).onChange(of: selectedColor, perform: { value in
-                print( "color changed \(selectedColor.powerappsValue() ?? "undef")" )
-            })
-            .frame(width: 150, height: 150)
-
+            ).onChange(of: selectedColor ){ value in
+                self.hexValue = value.hexValue()
+                self.powerAppValue = value.powerappsValue()
+                
+            }
+            .padding()
             Divider()
             
             HStack {
-                Text( "PowerApps")
+                Web
+                Divider()
+                PowerApp
             }
+            .padding()
 
-        }.padding(.vertical, 70)
+        }
         
         
         

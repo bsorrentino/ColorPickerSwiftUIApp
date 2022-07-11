@@ -7,20 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A00870BC25D4518400E3ADBC /* ColorPickerAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00870BB25D4518400E3ADBC /* ColorPickerAppApp.swift */; };
+		A00870BC25D4518400E3ADBC /* ColorPickerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00870BB25D4518400E3ADBC /* ColorPickerApp.swift */; };
 		A00870BE25D4518400E3ADBC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00870BD25D4518400E3ADBC /* ContentView.swift */; };
 		A00870C025D4518500E3ADBC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A00870BF25D4518500E3ADBC /* Assets.xcassets */; };
 		A00870C325D4518500E3ADBC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A00870C225D4518500E3ADBC /* Preview Assets.xcassets */; };
+		A0B420EF287C354F00BC6518 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B420EE287C354F00BC6518 /* Color+Extension.swift */; };
+		A0B420F1287C5CB600BC6518 /* Button+Clipboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B420F0287C5CB600BC6518 /* Button+Clipboard.swift */; };
+		A0B420F3287C615700BC6518 /* SwiftUI+Condition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B420F2287C615700BC6518 /* SwiftUI+Condition.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A00870B825D4518400E3ADBC /* ColorPickerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorPickerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A00870BB25D4518400E3ADBC /* ColorPickerAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerAppApp.swift; sourceTree = "<group>"; };
+		A00870BB25D4518400E3ADBC /* ColorPickerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerApp.swift; sourceTree = "<group>"; };
 		A00870BD25D4518400E3ADBC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A00870BF25D4518500E3ADBC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A00870C225D4518500E3ADBC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A00870C425D4518500E3ADBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A00870C525D4518500E3ADBC /* ColorPickerApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ColorPickerApp.entitlements; sourceTree = "<group>"; };
+		A0B420EE287C354F00BC6518 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		A0B420F0287C5CB600BC6518 /* Button+Clipboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+Clipboard.swift"; sourceTree = "<group>"; };
+		A0B420F2287C615700BC6518 /* SwiftUI+Condition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftUI+Condition.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,7 +59,10 @@
 		A00870BA25D4518400E3ADBC /* ColorPickerApp */ = {
 			isa = PBXGroup;
 			children = (
-				A00870BB25D4518400E3ADBC /* ColorPickerAppApp.swift */,
+				A0B420F2287C615700BC6518 /* SwiftUI+Condition.swift */,
+				A0B420F0287C5CB600BC6518 /* Button+Clipboard.swift */,
+				A0B420EE287C354F00BC6518 /* Color+Extension.swift */,
+				A00870BB25D4518400E3ADBC /* ColorPickerApp.swift */,
 				A00870BD25D4518400E3ADBC /* ContentView.swift */,
 				A00870BF25D4518500E3ADBC /* Assets.xcassets */,
 				A00870C425D4518500E3ADBC /* Info.plist */,
@@ -140,8 +149,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0B420F1287C5CB600BC6518 /* Button+Clipboard.swift in Sources */,
 				A00870BE25D4518400E3ADBC /* ContentView.swift in Sources */,
-				A00870BC25D4518400E3ADBC /* ColorPickerAppApp.swift in Sources */,
+				A0B420EF287C354F00BC6518 /* Color+Extension.swift in Sources */,
+				A00870BC25D4518400E3ADBC /* ColorPickerApp.swift in Sources */,
+				A0B420F3287C615700BC6518 /* SwiftUI+Condition.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,7 +292,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = org.bsc.ColorPickerApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -304,7 +316,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = org.bsc.ColorPickerApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
